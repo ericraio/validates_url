@@ -6,7 +6,7 @@ I18n.load_path += Dir[File.dirname(__FILE__) + "/locale/*.yml"]
 
 module ActiveModel
   module Validations
-    class UrlValidator < ActiveModel::EachValidator
+    class URLValidator < ActiveModel::EachValidator
       def initialize(options)
         options.reverse_merge!(:schemes => %w(http https))
         options.reverse_merge!(:no_local => false)
@@ -86,7 +86,7 @@ module ActiveModel
       # * <tt>:schemes</tt> - Array of URI schemes to validate against. (default is +['http', 'https']+)
 
       def validates_url(*attr_names)
-        validates_with UrlValidator, _merge_attributes(attr_names)
+        validates_with URLValidator, _merge_attributes(attr_names)
       end
     end
   end
